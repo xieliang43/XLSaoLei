@@ -11,14 +11,51 @@
 
 @implementation XLSaoLeiLayer
 
+@synthesize level = _level;
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.isTouchEnabled = YES;
+        
+        CGSize s = [[CCDirector sharedDirector] winSize];
+        CCSprite *background = [CCSprite spriteWithFile:@"kuang.png"];
+        background.position = ccp(s.width/2,s.height/2);
+        [self addChild:background];
+    }
+    return self;
+}
+
 - (void)onEnter
 {
     [super onEnter];
     
-    CGRect rect = CGRectMake(0, 0, self.contentSize.width, self.contentSize.height);
-    CCSprite *bg = [[CCSprite alloc] initWithFile:@"Default.png" rect:rect];
-    [self addChild:bg];
-    [bg release];
+    switch (_level) {
+        case HardGame:
+        {
+            //9*9,32
+            width = 9 * 32 + 10;
+            break;
+        }
+        case MiddleGame:
+        {
+            //7*7,44
+            break;
+        }
+        case SimpleGame:
+        {
+            //5*5,62
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
 }
 
 @end

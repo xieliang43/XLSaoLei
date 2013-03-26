@@ -22,6 +22,10 @@
 	// add layer as a child to scene
 	[scene addChild: layer];
 	
+    XLSaoLeiLayer *sLayer = [XLSaoLeiLayer node];
+    sLayer.level = HardGame;
+    [scene addChild:sLayer];
+    
 	// return the scene
 	return scene;
 }
@@ -35,14 +39,12 @@
     CCSprite *background = [CCSprite spriteWithFile:@"bg.png"];
     background.position = ccp(s.width/2,s.height/2);
     [self addChild:background];
-    //id action1=[CCScaleTo actionWithDuration:0.5 scale:1.25];
-    id action2=[CCScaleBy actionWithDuration:0.5 scale:.25];
-//    id action3=[CCScaleTo actionWithDuration:0.5 scale:1.25];
-//    id action4=[CCScaleTo actionWithDuration:0.5 scale:.25];
-    id action3=[CCScaleTo actionWithDuration:0.5 scaleX:-1 scaleY:1];
-    id action4=[action2 reverse];
-    [background runAction:[CCSequence actions:action2,action4, nil]];
 
+}
+
+- (void)draw
+{
+    ccDrawRect(ccp(0, 0), ccp(self.contentSize.width, self.contentSize.height));
 }
 
 @end
