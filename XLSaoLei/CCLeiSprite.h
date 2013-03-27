@@ -9,13 +9,31 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface CCLeiSprite : CCSprite {
-    
-    NSInteger number;
-    BOOL isBoom;
-    
+@protocol CCLeiSpriteDelegate;
+
+@interface CCLeiSprite : CCSprite<CCTargetedTouchDelegate> {
+    CCSprite *mask;
+    CCSprite *boomSprite;
 }
 
+@property (nonatomic,assign) NSInteger row;
+@property (nonatomic,assign) NSInteger col;
+@property (nonatomic,assign) BOOL isBoom;
+@property (nonatomic,assign,readonly) BOOL isFlag;
+@property (nonatomic,assign) NSInteger number;
+@property (nonatomic,assign) id<CCLeiSpriteDelegate> delegate;
 
+- (void)displayNumber;
+- (void)setFlag;
+- (void)removeFlag;
+- (void)cleanColor;
+- (void)setBoom;
+
+@end
+
+@protocol CCLeiSpriteDelegate <NSObject>
+
+@optional
+- (void)didClickSprite:(CCLeiSprite *)sprite;
 
 @end

@@ -18,9 +18,20 @@ typedef enum{
 }HardLevel;
 
 @interface XLSaoLeiLayer : CCLayer {
-    float width;
+    
+    int rows;
+    int cols;
+    int cell_width;
+    int width;
+    
+    int lei_num;
+    
+    CCArray *allLeiSprites;
+    CCArray *leiSprites;
+    
+    float delta;
 }
 
-@property (nonatomic,assign) HardLevel level;
+@property (nonatomic,assign,setter = setHardLavel:) HardLevel level;
 
 @end

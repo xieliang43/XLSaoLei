@@ -42,9 +42,4 @@
 
 }
 
-- (void)draw
-{
-    ccDrawRect(ccp(0, 0), ccp(self.contentSize.width, self.contentSize.height));
-}
-
 @end
