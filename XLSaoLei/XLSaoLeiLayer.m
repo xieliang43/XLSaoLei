@@ -23,6 +23,7 @@ const int simple_lei_num = 10;
     [super dealloc];
 }
 
+#pragma mark - 初始化
 - (id)init
 {
     self = [super init];
@@ -197,5 +198,6 @@ const int simple_lei_num = 10;
     CCLOG(@"click sprite");
 }
 
+#pragma mark - 遍历相关接点，设置状态
 
 @end
