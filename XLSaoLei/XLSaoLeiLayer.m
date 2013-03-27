@@ -8,7 +8,7 @@
 
 #import "XLSaoLeiLayer.h"
 
-const int hard_lei_num = 20;
+const int hard_lei_num = 0;
 const int middle_lei_num = 15;
 const int simple_lei_num = 10;
 
@@ -196,8 +196,53 @@ const int simple_lei_num = 10;
 - (void)didClickSprite:(CCLeiSprite *)sprite
 {
     CCLOG(@"click sprite");
+    if (sprite.number == 0 && !sprite.isBoom) {
+        [self ergodicNode:sprite];
+    }
 }
 
 #pragma mark - 遍历相关接点，设置状态
+- (void)ergodicNode:(CCLeiSprite *)sprite
+{
+    [sprite cleanColor];
+    
+    //t
+    int row = sprite.row - 1;
+    int col = sprite.col;
+    [self changeNumberOfSpriteWithRow:row withCol:col];
+    
+    //l
+    row = sprite.row;
+    col = sprite.col - 1;
+    [self changeNumberOfSpriteWithRow:row withCol:col];
+    
+    //r
+    row = sprite.row;
+    col = sprite.col + 1;
+    [self changeNumberOfSpriteWithRow:row withCol:col];
+    
+    //b
+    row = sprite.row + 1;
+    col = sprite.col;
+    [self changeNumberOfSpriteWithRow:row withCol:col];
+    
+}
+
+- (void)changeSpriteState:(int)row withCol:(int)col
+{
+    if (row >= 0 && row < rows && col >= 0 && col < cols) {
+        CCLeiSprite *sprite = [[allLeiSprites objectAtIndex:row] objectAtIndex:col];
+        CCLOG(@"%d-%d-%d",sprite.row,sprite.col,sprite.number);
+        if (sprite.isClear) {
+            return;
+        }else if (sprite.number == 0){
+            [self ergodicNode:sprite];
+        }else{
+            [sprite displayNumber];
+        }
+    }else{
+        return;
+    }
+}
 
 @end

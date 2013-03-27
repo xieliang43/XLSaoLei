@@ -17,6 +17,7 @@
 @synthesize number = _number;
 @synthesize isFlag = _isFlag;
 @synthesize delegate = _delegate;
+@synthesize isClear = _isClear;
 
 - (id)initWithFile:(NSString *)filename
 {
@@ -25,6 +26,7 @@
         _number = 0;
         _isFlag = NO;
         _isBoom = NO;
+        _isClear = NO;
     }
     return self;
 }
@@ -78,6 +80,7 @@
 {
     [self setTexture:nil];
     [self setTextureRect:CGRectZero];
+    _isClear = YES;
 }
 
 - (void)displayNumber

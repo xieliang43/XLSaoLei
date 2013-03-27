@@ -22,6 +22,7 @@
 @property (nonatomic,assign,readonly) BOOL isFlag;
 @property (nonatomic,assign) NSInteger number;
 @property (nonatomic,assign) id<CCLeiSpriteDelegate> delegate;
+@property (nonatomic,assign,readonly) BOOL isClear;
 
 - (void)displayNumber;
 - (void)setFlag;
