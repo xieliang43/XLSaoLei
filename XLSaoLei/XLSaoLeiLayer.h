@@ -17,7 +17,7 @@ typedef enum{
     SimpleGame
 }HardLevel;
 
-@interface XLSaoLeiLayer : CCLayer {
+@interface XLSaoLeiLayer : CCLayer<CCLeiSpriteDelegate> {
     
     int rows;
     int cols;

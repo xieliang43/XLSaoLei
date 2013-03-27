@@ -87,6 +87,7 @@ const int simple_lei_num = 10;
         for (int j = 0; j < cols; j++) {
             CCLeiSprite *sprite = [CCLeiSprite spriteWithFile:@"cell.png"];
             sprite.contentSize = CGSizeMake(cell_width, cell_width);
+            sprite.delegate = self;
             sprite.row = i;
             sprite.col = j;
             [row_arr addObject:sprite];
@@ -189,5 +190,12 @@ const int simple_lei_num = 10;
         }
     }
 }
+
+#pragma mark - CCLeiSpriteDelegate
+- (void)didClickSprite:(CCLeiSprite *)sprite
+{
+    CCLOG(@"click sprite");
+}
+
 
 @end
