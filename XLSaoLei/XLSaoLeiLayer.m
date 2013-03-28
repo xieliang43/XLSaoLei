@@ -8,7 +8,7 @@
 
 #import "XLSaoLeiLayer.h"
 
-const int hard_lei_num = 0;
+const int hard_lei_num = 20;
 const int middle_lei_num = 15;
 const int simple_lei_num = 10;
 
@@ -209,22 +209,22 @@ const int simple_lei_num = 10;
     //t
     int row = sprite.row - 1;
     int col = sprite.col;
-    [self changeNumberOfSpriteWithRow:row withCol:col];
+    [self changeSpriteState:row withCol:col];
     
     //l
     row = sprite.row;
     col = sprite.col - 1;
-    [self changeNumberOfSpriteWithRow:row withCol:col];
+    [self changeSpriteState:row withCol:col];
     
     //r
     row = sprite.row;
     col = sprite.col + 1;
-    [self changeNumberOfSpriteWithRow:row withCol:col];
+    [self changeSpriteState:row withCol:col];
     
     //b
     row = sprite.row + 1;
     col = sprite.col;
-    [self changeNumberOfSpriteWithRow:row withCol:col];
+    [self changeSpriteState:row withCol:col];
     
 }
 
