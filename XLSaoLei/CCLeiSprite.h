@@ -28,7 +28,7 @@
 - (void)setFlag;
 - (void)removeFlag;
 - (void)cleanColor;
-- (void)setBoom;
+- (void)setBomb;
 
 @end
 

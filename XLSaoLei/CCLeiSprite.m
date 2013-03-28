@@ -95,18 +95,21 @@
 - (void)setFlag
 {
     _isFlag = YES;
+    CCSprite *flagSprite = [CCSprite spriteWithFile:@"flag.png"];
+    [self addChild:flagSprite z:1 tag:10];
 }
 
 - (void)removeFlag
 {
     _isFlag = NO;
+    [self removeChildByTag:10 cleanup:YES];
 }
 
-
-
-- (void)setBoom
+- (void)setBomb
 {
-    
+    CCSprite *bombSprite = [CCSprite spriteWithFile:@"bomb.png"];
+    [self cleanColor];
+    [self addChild:bombSprite];
 }
 
 @end
