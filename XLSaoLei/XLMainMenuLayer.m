@@ -48,7 +48,8 @@
     
     CCMenuItemFont *item1 = [CCMenuItemFont itemWithString:@"简单"];
     [item1 setBlock:^(id sender) {
-        [[CCDirector sharedDirector] pushScene:[XLGameBackground scene]];
+        CCTransitionCrossFade *crossFade = [CCTransitionCrossFade transitionWithDuration:0.25 scene:[XLGameBackground scene]];
+        [[CCDirector sharedDirector] pushScene:crossFade];
     }];
     
     CCMenuItemFont *item2 = [CCMenuItemFont itemWithString:@"中等"];
@@ -77,11 +78,6 @@
     
     [self addChild:menu];
     menu.position = ccp(s.width/2,s.height/2);
-}
-
-- (void)onEnterTransitionDidFinish
-{
-    
 }
 
 @end
