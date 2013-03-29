@@ -203,6 +203,11 @@ const int simple_lei_num = 10;
     if (sprite.isBoom) {
         [sprite setBomb];
     }
+    
+    if (sprite.number > 0)
+    {
+        [sprite setFlag];
+    }
 }
 
 #pragma mark - 遍历相关接点，设置状态

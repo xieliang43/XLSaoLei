@@ -96,6 +96,8 @@
 {
     _isFlag = YES;
     CCSprite *flagSprite = [CCSprite spriteWithFile:@"flag.png"];
+    CGSize s = flagSprite.texture.contentSize;
+    flagSprite.position = ccp(s.width/2, s.height/2);
     [self addChild:flagSprite z:1 tag:10];
 }
 
