@@ -74,8 +74,7 @@
 			[[app navController] presentModalViewController:achivementViewController animated:YES];
 			
 			[achivementViewController release];
-		}
-									   ];
+		}];
 
 		// Leaderboard Menu Item using blocks
 		CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard" block:^(id sender) {
